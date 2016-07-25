@@ -16,6 +16,7 @@ Requires: nodejs
 Requires: vim
 Requires: screen
 BuildRequires: nodejs
+BuildRequires: npm
 AutoReqProv: no
 
 %description
