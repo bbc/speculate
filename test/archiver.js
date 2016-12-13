@@ -64,4 +64,15 @@ describe('archiver', function () {
 
     writeStream.emit('close');
   });
+
+  it('does not ignore all artifacts because of full path name', function (done) {
+    archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', function (err) {
+      assert.ifError(err);
+      var ignore = tar.pack.getCall(0).args[1].ignore;
+      assert.equal(ignore('/tmp/SOURCES/cake/real_file_here'), false);
+      done();
+    });
+
+    writeStream.emit('close');
+  });
 });
