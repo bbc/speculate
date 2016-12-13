@@ -58,6 +58,7 @@ describe('archiver', function () {
       assert.equal(ignore('SOURCES'), true);
       assert.equal(ignore('RPMS'), true);
       assert.equal(ignore('SRPMS'), true);
+      assert.equal(ignore('.git/objects/00'), true);
       done();
     });
 
