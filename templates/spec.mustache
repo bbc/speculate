@@ -42,12 +42,22 @@ getent passwd {{username}} >/dev/null || useradd -r -g {{username}} -G {{usernam
 mkdir -p %{buildroot}/usr/lib/{{name}}
 cp -r ./* %{buildroot}/usr/lib/{{name}}
 mkdir -p %{buildroot}/var/log/{{name}}
+{{#preunInstallCommands}}
+
+%preun
+{{.}}
+{{/preunInstallCommands}}
 
 %post
 systemctl enable /usr/lib/{{name}}/{{name}}.service
 {{#postInstallCommands}}
 {{.}}
 {{/postInstallCommands}}
+{{#postunInstallCommands}}
+
+%postun
+{{.}}
+{{/postunInstallCommands}}
 
 %clean
 rm -rf %{buildroot}
