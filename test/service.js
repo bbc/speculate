@@ -26,4 +26,12 @@ describe('service', function () {
 
     assert.equal(service, expected);
   });
+
+  it('includes service options from the spec.service-options property in package.json', function() {
+    var pkg = require('./fixtures/my-cool-api-with-service-options');
+    var expected = loadFixture('my-cool-api-with-service-options.service');
+    var service = createServiceFile(pkg);
+
+    assert.equal(service, expected);
+  });
 });

@@ -236,6 +236,21 @@ If you need to specify environment variables during startup (NODE_ENV for exampl
 }
 ```
 
+### Service Options
+
+If you need to set specific [systemd service options](https://www.freedesktop.org/software/systemd/man/systemd.exec.html) - in the  `[Service]` section of the .service file, you can specify these using the spec.service-options property:
+
+```json
+{
+  "spec": {
+    "service-options": {
+      "CPUSchedulingPriority": 50,
+      "LimitNOFILE": 10000
+    }
+  }
+}
+```
+
 ### Release Number
 
 By default speculate will set the RPM release number to 1, if you want to override this you can do so by using the `--release` flag:
