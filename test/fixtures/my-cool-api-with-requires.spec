@@ -34,7 +34,7 @@ getent passwd my-cool-api >/dev/null || useradd -r -g my-cool-api -G my-cool-api
 
 %install
 mkdir -p %{buildroot}/usr/lib/my-cool-api
-cp -r ./* %{buildroot}/usr/lib/my-cool-api
+cp -r ./ %{buildroot}/usr/lib/my-cool-api
 mkdir -p %{buildroot}/var/log/my-cool-api
 
 %post

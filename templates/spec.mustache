@@ -40,7 +40,7 @@ getent passwd {{username}} >/dev/null || useradd -r -g {{username}} -G {{usernam
 
 %install
 mkdir -p %{buildroot}/usr/lib/{{name}}
-cp -r ./* %{buildroot}/usr/lib/{{name}}
+cp -r ./ %{buildroot}/usr/lib/{{name}}
 mkdir -p %{buildroot}/var/log/{{name}}
 
 %post

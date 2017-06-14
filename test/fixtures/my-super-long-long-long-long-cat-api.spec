@@ -32,7 +32,7 @@ getent passwd my-super-long-long-long-long-cat >/dev/null || useradd -r -g my-su
 
 %install
 mkdir -p %{buildroot}/usr/lib/my-super-long-long-long-long-cat-api
-cp -r ./* %{buildroot}/usr/lib/my-super-long-long-long-long-cat-api
+cp -r ./ %{buildroot}/usr/lib/my-super-long-long-long-long-cat-api
 mkdir -p %{buildroot}/var/log/my-super-long-long-long-long-cat-api
 
 %post
