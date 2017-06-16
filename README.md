@@ -153,7 +153,7 @@ If you're using multiple node repositories or a repository with multiple version
 The `nodeVersion` property must conform to the [RPM version syntax](http://rpm.org/user_doc/dependencies.html#requires). Take particular note of the `epoch` (`[epoch:]version[-release]`) as a range without an epoch may not result in the desired dependency:
 
 ```shell
-"nodeVersion": "< 5.0.0"
+"nodeVersion": "< 7.0.0"
 ---
 Available Packages
 nodejs.x86_64                             6.2.2-1nodesource.el7.centos          nodesource # <- matches as no epoch specified
