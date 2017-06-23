@@ -38,6 +38,7 @@ mkdir -p %{buildroot}/var/log/my-cool-api
 %post
 systemctl enable /usr/lib/my-cool-api/my-cool-api.service
 mv /usr/lib/my-cool-api/rc.local /etc/rc.local
+find /etc/bake-scripts/application -maxdepth 1 -type f ! \( -name "*.pyc" -or -name '*.pyo' \) -exec chmod +x {} +
 
 %clean
 rm -rf %{buildroot}

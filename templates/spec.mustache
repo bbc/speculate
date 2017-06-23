@@ -46,7 +46,7 @@ mkdir -p %{buildroot}/var/log/{{name}}
 %post
 systemctl enable /usr/lib/{{name}}/{{name}}.service
 {{#postInstallCommands}}
-{{.}}
+{{{.}}}
 {{/postInstallCommands}}
 
 %clean
