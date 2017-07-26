@@ -57,8 +57,7 @@ rm -rf %{buildroot}
 /usr/lib/{{name}}
 /var/log/{{name}}
 {{#hasExecutableFiles}}
-%defattr(755, {{username}}, {{username}}, 755)
 {{#executableFiles}}
-{{.}}
+%attr(755, {{username}}, {{username}}) {{.}}
 {{/executableFiles}}
 {{/hasExecutableFiles}}
