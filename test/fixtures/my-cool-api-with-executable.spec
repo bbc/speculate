@@ -45,6 +45,5 @@ rm -rf %{buildroot}
 %defattr(644, my-cool-api, my-cool-api, 755)
 /usr/lib/my-cool-api
 /var/log/my-cool-api
-%defattr(755, my-cool-api, my-cool-api, 755)
-/usr/lib/my-cool-api/other-scripts/my-script.js
-/usr/lib/my-cool-api/scripts
+%attr(755, my-cool-api, my-cool-api) /usr/lib/my-cool-api/other-scripts/my-script.js
+%attr(755, my-cool-api, my-cool-api) /usr/lib/my-cool-api/scripts
