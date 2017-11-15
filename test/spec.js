@@ -27,6 +27,14 @@ describe('spec', function () {
     assert.equal(spec, expected);
   });
 
+  it('sets npm rebuild args when specified', function () {
+    var pkg = require('./fixtures/my-cool-api-with-npm-rebuild-args.json');
+    var expected = loadFixture('my-cool-api-with-npm-rebuild-args.spec');
+    var spec = createSpecFile(pkg);
+
+    assert.equal(spec, expected);
+  });
+
   it('sets the release number when specified', function () {
     var releaseNumber = 7;
     var pkg = require('./fixtures/my-cool-api');

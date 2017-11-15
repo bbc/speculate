@@ -123,6 +123,20 @@ If for some reason you need to package your dev dependencies with your productio
 }
 ```
 
+### NPM rebuild arguments
+
+There are cases where you may wish to add parameters to the `npm rebuild` command that is being ran. For example, you may with to specify something like the following:
+
+```json
+{
+  "spec": {
+    "npmRebuildArgs": "--nodedir=/usr/lib"
+  }
+}
+```
+
+which, if you had node-gyp installed would stop it from trying to use the internet from with the mock environment.
+
 ### `npm start` script
 
 The systemd service file that Speculate generates uses the `npm start` script to start your application. Make sure that you've defined this script in your `package.json` file.
