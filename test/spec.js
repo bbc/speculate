@@ -81,4 +81,11 @@ describe('spec', function () {
     var spec = createSpecFile(pkg);
     assert.equal(spec, expected);
   });
+
+  it('avoid escaping the Requires and Buildrequires', function () {
+    var pkg = require('./fixtures/my-cool-api-with-requires-noescape.json');
+    var expected = loadFixture('my-cool-api-with-requires-noescape.spec');
+    var spec = createSpecFile(pkg);
+    assert.equal(spec, expected);
+  });
 });
