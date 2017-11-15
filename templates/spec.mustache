@@ -14,11 +14,11 @@ Source: %{name}.tar.gz
 BuildRoot: %{buildroot}
 Requires: nodejs{{#nodeVersion}} {{{nodeVersion}}}{{/nodeVersion}}
 {{#requires}}
-Requires: {{.}}
+Requires: {{{.}}}
 {{/requires}}
 BuildRequires: nodejs{{#nodeVersion}} {{{nodeVersion}}}{{/nodeVersion}}
 {{#buildRequires}}
-BuildRequires: {{.}}
+BuildRequires: {{{.}}}
 {{/buildRequires}}
 AutoReqProv: no
 
