@@ -62,3 +62,6 @@ rm -rf %{buildroot}
 {{.}}
 {{/executableFiles}}
 {{/hasExecutableFiles}}
+{{#configFiles}}
+%config{{#noreplace}}(noreplace){{/noreplace}} {{file}}
+{{/configFiles}}

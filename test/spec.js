@@ -68,6 +68,14 @@ describe('spec', function () {
     assert.equal(spec, expected);
   });
 
+  it('adds all of the config files from the spec.config property in package.json', function () {
+    var pkg = require('./fixtures/my-cool-api-with-config-files');
+    var expected = loadFixture('my-cool-api-with-config-files.spec');
+    var spec = createSpecFile(pkg);
+
+    assert.equal(spec, expected);
+  });
+
   it('includes post-install actions from the spec.post property in package.json', function () {
     var pkg = require('./fixtures/my-cool-api-with-post');
     var expected = loadFixture('my-cool-api-with-post.spec');
