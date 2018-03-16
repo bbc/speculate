@@ -245,6 +245,24 @@ If you have scripts that need to be executable when they're installed on your ta
 }
 ```
 
+### Config files
+
+If you have files that need to be preserved after every `yum update`, you can add them to the `config` array.
+On update you can achieve following two behaviors:
+1. `"noreplace": false` (default): Local edited file will be renamed with `.rpmsave`
+2. `"noreplace": true`: Local edited file will be preserved and new file from update will be renamed with `.rpmnew`
+
+```json
+{
+  "spec": {
+    "config": [
+      {"file": "./my-config.js", "noreplace": true},
+      {"file": "./my-other-config.js"}
+    ]
+  }
+}
+```
+
 ### Post Install Actions
 
 If you need to perform any actions after installing your package (such as moving files on the target server) you can specify these inline using the `post` property:
