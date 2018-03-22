@@ -1,6 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
 const fs = require('fs');
 const tar = require('tar-fs');
 const zlib = require('zlib');
@@ -10,6 +9,8 @@ const sinon = require('sinon');
 const sandbox = sinon.sandbox.create();
 
 const archiver = require('../lib/archiver');
+
+function noop() {}
 
 describe('archiver', () => {
   let writeStream;
@@ -21,8 +22,8 @@ describe('archiver', () => {
     readStream = new stream.Readable();
     transformStream = new stream.Transform();
 
-    readStream._read = _.noop;
-    transformStream._read = _.noop;
+    readStream._read = noop;
+    transformStream._read = noop;
 
     sandbox.stub(fs, 'createWriteStream').returns(writeStream);
     sandbox.stub(zlib, 'createGzip').returns(transformStream);

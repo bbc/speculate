@@ -61,6 +61,7 @@ describe('generate', () => {
       '/path/to/project',
       '/path/to/project/SOURCES/my-cool-api.tar.gz',
       {
+        files: undefined,
         main: 'index.js'
       }
     );
@@ -108,6 +109,7 @@ describe('generate', () => {
       '/path/to/project',
       '/path/to/project/SOURCES/penguin.tar.gz',
       {
+        files: undefined,
         main: 'index.js'
       }
     );

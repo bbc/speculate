@@ -32,7 +32,6 @@
   "dependencies": {
     "commander": "^2.9.0",
     "hogan.js": "^3.0.2",
-    "lodash": "^4.6.1",
     "rimraf": "^2.5.2",
     "tar-fs": "^1.11.1"
   },
