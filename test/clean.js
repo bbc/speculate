@@ -1,20 +1,22 @@
-var sinon = require('sinon');
-var rimraf = require('rimraf');
-var clean = require('../lib/clean');
+'use strict';
 
-var pkg = require('./fixtures/my-cool-api');
-var sandbox = sinon.sandbox.create();
+const sinon = require('sinon');
+const rimraf = require('rimraf');
+const clean = require('../lib/clean');
 
-describe('clean', function () {
-  beforeEach(function () {
+const pkg = require('./fixtures/my-cool-api');
+const sandbox = sinon.sandbox.create();
+
+describe('clean', () => {
+  beforeEach(() => {
     sandbox.stub(rimraf, 'sync');
   });
 
-  afterEach(function () {
+  afterEach(() => {
     sandbox.restore();
   });
 
-  it('removes the existing service file', function () {
+  it('removes the existing service file', () => {
     clean('/path/to/project', pkg);
     sinon.assert.calledWith(
       rimraf.sync,
@@ -22,7 +24,7 @@ describe('clean', function () {
     );
   });
 
-  it('removes the SPECS directory', function () {
+  it('removes the SPECS directory', () => {
     clean('/path/to/project', pkg);
     sinon.assert.calledWith(
       rimraf.sync,
@@ -30,7 +32,7 @@ describe('clean', function () {
     );
   });
 
-  it('removes the SOURCES directory', function () {
+  it('removes the SOURCES directory', () => {
     clean('/path/to/project', pkg);
     sinon.assert.calledWith(
       rimraf.sync,

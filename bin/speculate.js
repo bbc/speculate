@@ -1,22 +1,24 @@
 #! /usr/bin/env node
+'use strict';
 
-var path = require('path');
-var program = require('commander');
+const path = require('path');
+const program = require('commander');
 
-var validator = require('../lib/validator');
-var generate = require('../lib/generate');
-var clean = require('../lib/clean');
-var commandPkg = require('../package');
+const validator = require('../lib/validator');
+const generate = require('../lib/generate');
+const clean = require('../lib/clean');
+const commandPkg = require('../package');
 
-var cwd = process.cwd();
-var isValid = validator(cwd);
+const cwd = process.cwd();
+const isValid = validator(cwd);
 
 if (!isValid) {
+  // eslint-disable-next-line no-console
   console.error('Please run speculate from within a valid Node.js project');
   process.exit(1);
 }
 
-var projectPkg = require(path.resolve(cwd, './package.json'));
+const projectPkg = require(path.resolve(cwd, './package.json'));
 
 program
   .version(commandPkg.version)
@@ -24,18 +26,24 @@ program
   .option('-n --name <name>', 'Specify custom name for package')
   .parse(process.argv);
 
-// Commander has a magic property called name when not overriden by a parameter
-var name = program.name instanceof Function ? undefined : program.name;
+// Commander has a magic property called name when not overridden by a parameter
+const name = program.name instanceof Function ? undefined : program.name;
 
-clean(cwd, projectPkg);
-generate(cwd, projectPkg, program.release, name, function (err, generated) {
-  if (err) {
+async function runTasks() {
+  clean(cwd, projectPkg);
+
+  try {
+    const files = await generate(cwd, projectPkg, program.release, name);
+    files.forEach((file) => {
+      // eslint-disable-next-line no-console
+      console.log('Created ./%s', file);
+    });
+    process.exit(0);
+  } catch (err) {
+    // eslint-disable-next-line no-console
     console.error('Error:', err.message);
     process.exit(1);
   }
+}
 
-  generated.forEach(function (file) {
-    console.log('Created ./%s', file);
-  });
-  process.exit(0);
-});
+runTasks();
