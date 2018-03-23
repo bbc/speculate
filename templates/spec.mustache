@@ -61,3 +61,6 @@ rm -rf %{buildroot}
 %attr(755, {{username}}, {{username}}) {{.}}
 {{/executableFiles}}
 {{/hasExecutableFiles}}
+{{#configFiles}}
+%config{{#noreplace}}(noreplace){{/noreplace}} {{file}}
+{{/configFiles}}
