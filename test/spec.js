@@ -69,11 +69,11 @@ describe('spec', () => {
 
     assert.equal(spec, expected);
   });
-  
-  it('adds all of the config files from the spec.config property in package.json', function () {
-    var pkg = require('./fixtures/my-cool-api-with-config-files');
-    var expected = loadFixture('my-cool-api-with-config-files.spec');
-    var spec = createSpecFile(pkg);
+
+  it('adds all of the config files from the spec.config property in package.json', () => {
+    const pkg = require('./fixtures/my-cool-api-with-config-files');
+    const expected = loadFixture('my-cool-api-with-config-files.spec');
+    const spec = createSpecFile(pkg);
 
     assert.equal(spec, expected);
   });
