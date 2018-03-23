@@ -1,6 +1,6 @@
 {
   "name": "speculate",
-  "version": "1.7.1",
+  "version": "1.7.4",
   "description": "Automatically generates an RPM Spec file for your Node.js project",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "generate"
   ],
   "author": "ibl-team@lists.forge.bbc.co.uk",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/bbc/speculate/issues"
   },
@@ -37,21 +37,17 @@
     "tar-fs": "^1.11.1"
   },
   "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "node": true,
-      "mocha": true
-    },
-    "rules": {
-      "semi": 2,
-      "no-console": 0
+    "extends": "iplayer-es6",
+    "parserOptions": {
+      "ecmaVersion": 8
     }
   },
   "devDependencies": {
     "codeclimate-test-reporter": "^0.5.0",
-    "eslint": "^2.4.0",
+    "eslint": "^4.19.1",
+    "eslint-config-iplayer-es6": "^4.0.1",
     "istanbul": "^0.4.2",
-    "mocha": "^3.4.2",
-    "sinon": "^2.3.5"
+    "mocha": "^5.0.4",
+    "sinon": "^4.4.8"
   }
 }

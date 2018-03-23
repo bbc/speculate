@@ -9,9 +9,11 @@
   "author": "bob@example.com",
   "license": "MIT",
   "spec": {
-    "post": [
-      "mv /usr/lib/my-cool-api/rc.local /etc/rc.local",
-      "find /etc/bake-scripts/application -maxdepth 1 -type f ! \\( -name \"*.pyc\" -or -name '*.pyo' \\) -exec chmod +x {} +"
+    "requires": [
+      "python >= 2.7.14"
+    ],
+    "buildRequires": [
+      "python >= 2.7.14"
     ]
   }
 }

@@ -13,7 +13,9 @@ License: MIT
 Source: %{name}.tar.gz
 BuildRoot: %{buildroot}
 Requires: nodejs
+Requires: python >= 2.7.14
 BuildRequires: nodejs
+BuildRequires: python >= 2.7.14
 AutoReqProv: no
 
 %description
@@ -45,5 +47,3 @@ rm -rf %{buildroot}
 %defattr(644, my-cool-api, my-cool-api, 755)
 /usr/lib/my-cool-api
 /var/log/my-cool-api
-%attr(755, my-cool-api, my-cool-api) /usr/lib/my-cool-api/other-scripts/my-script.js
-%attr(755, my-cool-api, my-cool-api) /usr/lib/my-cool-api/scripts

@@ -14,11 +14,11 @@ Source: %{name}.tar.gz
 BuildRoot: %{buildroot}
 Requires: nodejs{{#nodeVersion}} {{{nodeVersion}}}{{/nodeVersion}}
 {{#requires}}
-Requires: {{.}}
+Requires: {{{.}}}
 {{/requires}}
 BuildRequires: nodejs{{#nodeVersion}} {{{nodeVersion}}}{{/nodeVersion}}
 {{#buildRequires}}
-BuildRequires: {{.}}
+BuildRequires: {{{.}}}
 {{/buildRequires}}
 AutoReqProv: no
 
@@ -46,7 +46,7 @@ mkdir -p %{buildroot}/var/log/{{name}}
 %post
 systemctl enable /usr/lib/{{name}}/{{name}}.service
 {{#postInstallCommands}}
-{{.}}
+{{{.}}}
 {{/postInstallCommands}}
 
 %clean
@@ -57,9 +57,8 @@ rm -rf %{buildroot}
 /usr/lib/{{name}}
 /var/log/{{name}}
 {{#hasExecutableFiles}}
-%defattr(755, {{username}}, {{username}}, 755)
 {{#executableFiles}}
-{{.}}
+%attr(755, {{username}}, {{username}}) {{.}}
 {{/executableFiles}}
 {{/hasExecutableFiles}}
 {{#configFiles}}
