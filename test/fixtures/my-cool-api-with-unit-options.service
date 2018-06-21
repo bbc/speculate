@@ -1,0 +1,18 @@
+[Unit]
+Description=My Cool API
+Before=my-cooler-api.service
+After=my-coolest-api.service
+Requires=my-coolest-api.service
+
+[Service]
+ExecStart=/usr/bin/npm start
+WorkingDirectory=/usr/lib/my-cool-api
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=my-cool-api
+User=my-cool-api
+Group=my-cool-api
+
+[Install]
+WantedBy=multi-user.target

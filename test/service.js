@@ -36,4 +36,12 @@ describe('service', () => {
 
     assert.equal(service, expected);
   });
+
+  it('incudes unit options from the spec.unitOptions property in the package.json', () => {
+    const pkg = require('./fixtures/my-cool-api-with-unit-options');
+    const expected = loadFixture('my-cool-api-with-unit-options.service');
+    const service = createServiceFile(pkg);
+
+    assert.equal(service, expected);
+  });
 });
