@@ -1,6 +1,11 @@
 [Unit]
 Description={{description}}
+{{#unitOptions}}
+{{key}}={{value}}
+{{/unitOptions}}
+{{^unitOptions}}
 After=network.target nss-lookup.target
+{{/unitOptions}}
 
 [Service]
 ExecStart=/usr/bin/npm start
