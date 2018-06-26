@@ -305,6 +305,13 @@ You can set specific [systemd unit options](https://www.freedesktop.org/software
 }
 ```
 
+If you do not require any specific unit options Speculate will use default options:
+```
+[Unit]
+Description=My Cool API
+After=network.target nss-lookup.target
+```
+
 ### Release Number
 
 By default speculate will set the RPM release number to 1, if you want to override this you can do so by using the `--release` flag:
