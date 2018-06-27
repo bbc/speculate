@@ -62,7 +62,8 @@ describe('generate', () => {
       '/path/to/project/SOURCES/my-cool-api.tar.gz',
       {
         files: undefined,
-        main: 'index.js'
+        main: 'index.js',
+        service: 'my-cool-api.service'
       }
     );
   });
@@ -110,7 +111,8 @@ describe('generate', () => {
       '/path/to/project/SOURCES/penguin.tar.gz',
       {
         files: undefined,
-        main: 'index.js'
+        main: 'index.js',
+        service: 'my-cool-api.service'
       }
     );
   });
@@ -127,7 +129,8 @@ describe('generate', () => {
           'lib',
           'routes',
           'index.js'
-        ]
+        ],
+        service: 'my-cool-api.service'
       }
     );
   });

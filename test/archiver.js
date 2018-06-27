@@ -78,12 +78,13 @@ describe('archiver', () => {
   });
 
   it('archives files on a whitelist if specified alongside required files', async () => {
+    const service = 'my-cool-api.service';
     const files = [
       'lib',
       'routes',
       'index.js'
     ];
-    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { files });
+    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { service, files });
     writeStream.emit('close');
 
     await result;
@@ -92,6 +93,7 @@ describe('archiver', () => {
       entries: [
         'package.json',
         'node_modules',
+        'my-cool-api.service',
         'lib',
         'routes',
         'index.js'
@@ -100,7 +102,8 @@ describe('archiver', () => {
   });
 
   it('does not include whitelist if none specified', async () => {
-    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', {});
+    const service = 'my-cool-api.service';
+    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { service });
     writeStream.emit('close');
 
     await result;
@@ -111,13 +114,14 @@ describe('archiver', () => {
   });
 
   it('adds the "main" file to the archive alongside "files" if specified', async () => {
+    const service = 'my-cool-api.service';
     const main = 'server.js';
     const files = [
       'lib',
       'routes',
       'index.js'
     ];
-    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { main, files });
+    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { service, main, files });
     writeStream.emit('close');
 
     await result;
@@ -127,6 +131,7 @@ describe('archiver', () => {
       entries: [
         'package.json',
         'node_modules',
+        'my-cool-api.service',
         'server.js',
         'lib',
         'routes',
@@ -136,8 +141,9 @@ describe('archiver', () => {
   });
 
   it('archives everything if only the "main" is specified', async () => {
+    const service = 'my-cool-api.service';
     const main = 'server.js';
-    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { main });
+    const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { service, main });
     writeStream.emit('close');
 
     await result;
