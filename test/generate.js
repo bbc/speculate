@@ -117,7 +117,7 @@ describe('generate', () => {
     );
   });
 
-  it('passes files and main values from the package.json to archiver', async () => {
+  it('passes files and main values from the spec.json to archiver', async () => {
     await generate('/path/to/project', pkgWithWhitelist, null, null);
     sandbox.assert.calledWith(
       archiver.compress,

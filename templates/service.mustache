@@ -1,5 +1,5 @@
 [Unit]
-Description={{description}}
+Description=genesis-skeleton
 {{#unitOptions}}
 {{key}}={{value}}
 {{/unitOptions}}
@@ -8,9 +8,11 @@ After=network.target nss-lookup.target
 {{/unitOptions}}
 
 [Service]
-ExecStart=/usr/bin/npm start
-WorkingDirectory=/usr/lib/{{name}}
+Type=simple
 Restart=always
+RestartSec=10
+WorkingDirectory=/usr/lib/genesis-skeleton
+ExecStart=/usr/lib/genesis-skeleton/genesis-skeleton.jar
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier={{name}}

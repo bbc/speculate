@@ -18,7 +18,7 @@ if (!isValid) {
   process.exit(1);
 }
 
-const projectPkg = require(path.resolve(cwd, './package.json'));
+const projectPkg = require(path.resolve(cwd, './spec.json'));
 
 program
   .version(commandPkg.version)

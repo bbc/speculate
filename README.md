@@ -1,8 +1,6 @@
 # speculate
 
-[![Build Status](https://travis-ci.org/bbc/speculate.svg)](https://travis-ci.org/bbc/speculate) [![Code Climate](https://codeclimate.com/github/bbc/speculate/badges/gpa.svg)](https://codeclimate.com/github/bbc/speculate) [![Test Coverage](https://codeclimate.com/github/bbc/speculate/badges/coverage.svg)](https://codeclimate.com/github/bbc/speculate/coverage)
-
-> Automatically generates an RPM Spec file for your Node.js project
+> Automatically generates an RPM Spec file for your Scala project
 
 ## Installation
 
@@ -14,7 +12,7 @@ npm install --global speculate
 
 * Generates an RPM Spec file for your project
 * Creates a [systemd](https://www.freedesktop.org/wiki/Software/systemd/) service definition file
-* Supports configuration using your existing `package.json`
+* Supports configuration using `spec.json`
 * Currently supports CentOS 7
 
 ## Usage
