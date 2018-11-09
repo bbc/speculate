@@ -9,7 +9,7 @@ Release: %{release}
 Summary: {{name}}
 
 Group: Installation Script
-License: {{license}}
+License: internal BBC use only
 Source: %{name}.tar.gz
 BuildRoot: %{buildroot}
 {{#requires}}
@@ -41,6 +41,7 @@ mkdir -p %{buildroot}/var/log/{{name}}
 
 %post
 systemctl enable /usr/lib/{{name}}/{{name}}.service
+
 {{#postInstallCommands}}
 {{{.}}}
 {{/postInstallCommands}}
