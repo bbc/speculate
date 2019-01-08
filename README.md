@@ -82,6 +82,16 @@ Speculate assumes that you've _already installed your npm dependencies_ when it 
 
 The generated spec file instructs your RPM building tool to run [`npm rebuild`](https://docs.npmjs.com/cli/rebuild) as part of the build process. This ensures that any native modules are rebuilt for your target environment, even if they were originally installed on a different platform.
 
+If for some reason you do not want to rebuild your native modules, you can explicity tell speculate not to rebuild by adding the following to your `package.json`:
+
+```json
+{
+  "spec": {
+    "rebuild": false
+  }
+}
+```
+
 A typical speculate build looks like this:
 
 ```bash

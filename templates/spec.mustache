@@ -32,7 +32,9 @@ AutoReqProv: no
 {{#prune}}
 npm prune --production
 {{/prune}}
+{{#rebuild}}
 npm rebuild
+{{/rebuild}}
 
 %pre
 getent group {{username}} >/dev/null || groupadd -r {{username}}

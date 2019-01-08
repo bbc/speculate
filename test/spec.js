@@ -29,6 +29,14 @@ describe('spec', () => {
     assert.equal(spec, expected);
   });
 
+  it('removes the rebuild step when specified', () => {
+    const pkg = require('./fixtures/my-cool-api-no-rebuild');
+    const expected = loadFixture('my-cool-api-no-rebuild.spec');
+    const spec = createSpecFile(pkg);
+
+    assert.equal(spec, expected);
+  });
+
   it('sets the release number when specified', () => {
     const releaseNumber = 7;
     const pkg = require('./fixtures/my-cool-api');
