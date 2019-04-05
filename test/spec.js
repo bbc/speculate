@@ -82,6 +82,7 @@ describe('spec', () => {
     const pkg = require('./fixtures/my-cool-api-with-post');
     const expected = loadFixture('my-cool-api-with-post.spec');
     const spec = createSpecFile(pkg);
+
     assert.equal(spec, expected);
   });
 
@@ -89,6 +90,7 @@ describe('spec', () => {
     const pkg = require('./fixtures/my-cool-api-with-diff-licence');
     const expected = loadFixture('my-cool-api-with-diff-licence.spec');
     const spec = createSpecFile(pkg);
+
     assert.equal(spec, expected);
   });
 
