@@ -21,7 +21,7 @@ describe('service', () => {
     assert.equal(service, expected);
   });
 
-  it('includes environment constiables from the spec.environment property in package.json', () => {
+  it('includes environment variables from the spec.environment property in package.json', () => {
     const pkg = require('./fixtures/my-cool-api-environment');
     const expected = loadFixture('my-cool-api-environment.service');
     const service = createServiceFile(pkg);
