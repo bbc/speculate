@@ -98,6 +98,15 @@ describe('spec', () => {
     const pkg = require('./fixtures/my-cool-api-with-requires-noescape.json');
     const expected = loadFixture('my-cool-api-with-requires-noescape.spec');
     const spec = createSpecFile(pkg);
+
+    assert.equal(spec, expected);
+  });
+
+  it('replaces hyphens in the package version number with tildes', () => {
+    const pkg = require('./fixtures/my-cool-api-with-hyphenated-version.json');
+    const expected = loadFixture('my-cool-api-with-hyphenated-version.spec');
+    const spec = createSpecFile(pkg);
+
     assert.equal(spec, expected);
   });
 });
