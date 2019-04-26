@@ -342,7 +342,7 @@ This is useful if you are using private NPM packages which start with an `@`.
 
 ### Replace hyphens in npm version number
 
-Running rpmbuild on an npm package with a hyphen in its version number throws an error. If your package's version number contains hyphens, (e.g. it is a prerelease), you may wish to replace them so that the rpm can be built. You can tell speculate to replace these with tildes by adding the `replaceHyphens` property to your package's spec block:
+Running rpmbuild on an npm package with a hyphen in its version number throws an error. If your package's version number contains hyphens (e.g. it is a prerelease), you may wish to replace them so that the rpm can be built. You can tell speculate to replace these with tildes by adding the `replaceHyphens` property to your package's spec block:
 
 ```json
 {
