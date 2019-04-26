@@ -102,7 +102,15 @@ describe('spec', () => {
     assert.equal(spec, expected);
   });
 
-  it('replaces hyphens in the package version number with tildes', () => {
+  it('replaces hyphens in the package version number with tildes if spec.replaceHyphens is true in package.json', () => {
+    const pkg = require('./fixtures/my-cool-api-with-hyphenated-version-and-override.json');
+    const expected = loadFixture('my-cool-api-with-version-hyphens-replaced.spec');
+    const spec = createSpecFile(pkg);
+
+    assert.equal(spec, expected);
+  });
+
+  it('does not replace hyphens in the package version number if spec.replaceHyphens is not defined in package.json', () => {
     const pkg = require('./fixtures/my-cool-api-with-hyphenated-version.json');
     const expected = loadFixture('my-cool-api-with-hyphenated-version.spec');
     const spec = createSpecFile(pkg);

@@ -1,5 +1,5 @@
 %define name my-cool-api
-%define version 1.1.1-pre-release-string.1
+%define version 1.1.1~pre~release~string.1
 %define release 1
 %define buildroot %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
