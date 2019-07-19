@@ -351,3 +351,13 @@ Running rpmbuild on an npm package with a hyphen in its version number throws an
   }
 }
 ```
+
+Or you can supply a string if you want something other than a tilde:
+
+```json
+{
+  "spec": {
+    "replaceHyphens": "_"
+  }
+}
+```
