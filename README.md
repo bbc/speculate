@@ -351,3 +351,29 @@ Running rpmbuild on an npm package with a hyphen in its version number throws an
   }
 }
 ```
+
+### Mocking and node-gyp
+
+[Mock](https://github.com/rpm-software-management/mock) is a really useful tool to ensure that your RPM builds in a clean environment, without accidentally depending on something your system that you havn't added to the `require` list.
+
+While the RPM is being built by `mock`, it does not have any access to the Internet. This is good because it ensures that you get consistent builds. It also means the build won't fail, if a server outside of your control is offline. However it can cause node-gyp to fail, if it can't find the node header files on your system.
+
+If you are using [NodeSource](https://github.com/nodesource/distributions), then you will need to make sure your have a build dependency on: `nodejs-devel`. This places the node header files in `/usr/include/node`:
+
+```json
+{
+  "spec": {
+    "buildRequires": [
+      "nodejs-devel"
+    ]
+  }
+}
+```
+
+Then add the following line to `/etc/mock/site-defaults.cfg`:
+
+```
+config_opts['environment']['npm_config_nodedir'] = '/usr'
+```
+
+This will tell node-gyp where to find the node.js header files on your system.
