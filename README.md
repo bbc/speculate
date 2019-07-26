@@ -352,7 +352,7 @@ Running rpmbuild on an npm package with a hyphen in its version number throws an
 }
 ```
 
-Or you can explicitly tell speculate to replace hyphens with tildes "~", underscores "_" or plus signs "+":
+Or you can explicitly tell speculate to replace hyphens with tildes `"~"`, underscores `"_"` or plus signs `"+"`:
 
 ```json
 {
