@@ -112,11 +112,20 @@ describe('spec', () => {
     assert.equal(spec, expected);
   });
 
-  it('replaces hyphens in the package version number with spec.replaceHyphens if it is a string', () => {
+  it('replaces hyphens in the package version number with spec.replaceHyphens if it is a valid character', () => {
     const pkg = require('./fixtures/my-cool-api-with-hyphenated-version-and-override-underscore.json');
     const expected = loadFixture(
       'my-cool-api-with-version-hyphens-replaced-underscores.spec'
     );
+    const spec = createSpecFile(pkg);
+
+    assert.equal(spec, expected);
+  });
+
+  it('does not replace hyphens in the package version number if spec.replaceHyphens is not a valid character', () => {
+    const pkg = require('./fixtures/my-cool-api-with-hyphenated-version-and-override-underscore.json');
+    pkg.spec.replaceHyphens = 'invalid';
+    const expected = loadFixture('my-cool-api-with-hyphenated-version.spec');
     const spec = createSpecFile(pkg);
 
     assert.equal(spec, expected);
