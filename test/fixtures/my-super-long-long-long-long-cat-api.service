@@ -4,10 +4,10 @@ After=network.target nss-lookup.target
 
 [Service]
 ExecStart=/usr/bin/npm start
-WorkingDirectory=/usr/lib/my-super-long-long-long-long-cat-api
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
+WorkingDirectory=/usr/lib/my-super-long-long-long-long-cat-api
 SyslogIdentifier=my-super-long-long-long-long-cat-api
 User=my-super-long-long-long-long-cat
 Group=my-super-long-long-long-long-cat

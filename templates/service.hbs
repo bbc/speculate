@@ -8,20 +8,16 @@ After=network.target nss-lookup.target
 {{/unitOptions}}
 
 [Service]
-ExecStart=/usr/bin/npm start
+{{#serviceOptions}}
+{{key}}={{value}}
+{{/serviceOptions}}
 WorkingDirectory=/usr/lib/{{name}}
-Restart=always
-StandardOutput=syslog
-StandardError=syslog
 SyslogIdentifier={{name}}
 User={{username}}
 Group={{username}}
 {{#environment}}
 Environment={{key}}={{value}}
 {{/environment}}
-{{#serviceOptions}}
-{{key}}={{value}}
-{{/serviceOptions}}
 
 [Install]
 WantedBy=multi-user.target
