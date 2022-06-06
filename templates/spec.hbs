@@ -38,7 +38,7 @@ npm rebuild
 
 %pre
 getent group {{username}} >/dev/null || groupadd -r {{username}}
-getent passwd {{username}} >/dev/null || useradd -r -g {{username}} -G {{username}} -d / -s /sbin/nologin -c "{{username}}" {{username}}
+getent passwd {{username}} >/dev/null || useradd -r -g {{username}} -G {{username}} -d /usr/lib/{{name}} -s /sbin/nologin -c "{{username}}" {{username}}
 
 %install
 mkdir -p %{buildroot}/usr/lib/{{name}}
