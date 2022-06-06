@@ -27,7 +27,7 @@ npm rebuild
 
 %pre
 getent group my-cool-api >/dev/null || groupadd -r my-cool-api
-getent passwd my-cool-api >/dev/null || useradd -r -g my-cool-api -G my-cool-api -d /usr/lib/my-cool-api -s /sbin/nologin -c "my-cool-api" my-cool-api
+getent passwd my-cool-api >/dev/null || useradd -r -g my-cool-api -G my-cool-api -d /usr/lib/my-cool-api -m -s /sbin/nologin -c "my-cool-api" my-cool-api
 
 %install
 mkdir -p %{buildroot}/usr/lib/my-cool-api

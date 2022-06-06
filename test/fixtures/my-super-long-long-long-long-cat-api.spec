@@ -28,7 +28,7 @@ npm rebuild
 
 %pre
 getent group my-super-long-long-long-long-cat >/dev/null || groupadd -r my-super-long-long-long-long-cat
-getent passwd my-super-long-long-long-long-cat >/dev/null || useradd -r -g my-super-long-long-long-long-cat -G my-super-long-long-long-long-cat -d /usr/lib/my-super-long-long-long-long-cat-api -s /sbin/nologin -c "my-super-long-long-long-long-cat" my-super-long-long-long-long-cat
+getent passwd my-super-long-long-long-long-cat >/dev/null || useradd -r -g my-super-long-long-long-long-cat -G my-super-long-long-long-long-cat -d /usr/lib/my-super-long-long-long-long-cat-api -m -s /sbin/nologin -c "my-super-long-long-long-long-cat" my-super-long-long-long-long-cat
 
 %install
 mkdir -p %{buildroot}/usr/lib/my-super-long-long-long-long-cat-api
