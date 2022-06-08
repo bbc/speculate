@@ -23,7 +23,7 @@ My Super Long Long Long Long Cat API
 %setup -q -c -n %{name}
 
 %build
-npm prune --production
+NODE_ENV=production npm prune
 npm rebuild
 
 %pre

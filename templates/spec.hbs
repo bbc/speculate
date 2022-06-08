@@ -30,7 +30,9 @@ AutoReqProv: no
 
 %build
 {{#prune}}
-npm prune --production
+# Setting NODE_ENV is the same as --production or --omit=dev. Using NODE_ENV here as pruning has slightly different behaviour in newer versions.
+# See https://docs.npmjs.com/cli/v8/commands/npm-prune compared to https://docs.npmjs.com/cli/v6/commands/npm-prune
+NODE_ENV=production npm prune
 {{/prune}}
 {{#rebuild}}
 npm rebuild
