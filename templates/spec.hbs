@@ -30,6 +30,11 @@ AutoReqProv: no
 
 %build
 {{#prune}}
+
+NPM_VER=$(npm --version)
+function ver { printf "%03d%03d%03d" $(echo "$1" | tr '.' ' '); }
+[ $(ver $NPM_VER) -ge $(ver 8.6) ] && echo '[ERROR] Pruning is not supported with npm 8.6+. This is due to it requiring network access which may or may not be available. Please perform pruning outside of your rpmbuild/mock call and disable pruning in your package.json.' && exit 1
+
 # Setting NODE_ENV is the same as --production or --omit=dev. Using NODE_ENV here as pruning has slightly different behaviour in newer versions.
 # See https://docs.npmjs.com/cli/v8/commands/npm-prune compared to https://docs.npmjs.com/cli/v6/commands/npm-prune
 NODE_ENV=production npm prune
