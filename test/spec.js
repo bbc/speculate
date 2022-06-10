@@ -21,9 +21,9 @@ describe('spec', () => {
     assert.equal(spec, expected);
   });
 
-  it('removes the prune step when specified', () => {
-    const pkg = require('./fixtures/my-cool-api-no-prune');
-    const expected = loadFixture('my-cool-api-no-prune.spec');
+  it('adds the prune step when specified', () => {
+    const pkg = require('./fixtures/my-cool-api-prune');
+    const expected = loadFixture('my-cool-api-prune.spec');
     const spec = createSpecFile(pkg);
 
     assert.equal(spec, expected);

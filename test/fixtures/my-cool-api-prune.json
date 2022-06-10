@@ -9,6 +9,6 @@
   "author": "bob@example.com",
   "license": "MIT",
   "spec": {
-    "prune": false
+    "prune": true
   }
 }

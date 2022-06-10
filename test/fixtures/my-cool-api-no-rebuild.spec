@@ -23,7 +23,6 @@ My Cool API
 %setup -q -c -n %{name}
 
 %build
-NODE_ENV=production npm prune
 
 %pre
 getent group my-cool-api >/dev/null || groupadd -r my-cool-api
