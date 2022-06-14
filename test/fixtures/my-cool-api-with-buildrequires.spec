@@ -24,7 +24,6 @@ My Cool API
 %setup -q -c -n %{name}
 
 %build
-NODE_ENV=production npm prune
 npm rebuild
 
 %pre

@@ -121,6 +121,8 @@ You can then run `npm run spec` to generate your spec file in an environment whe
 
 ### Pruning dependencies
 
+> :warning: **DEPRECATION WANRING** Pruning is deprecated in Speculate v4.0.0 and is turned off by default. To enable you must set the `prune` option to `true`. In NPM 8.6+ internet access is required to perform pruning which may not be available in all build environments, in which case the RPM build stage may stall before failing.
+
 To minimise the final RPM size, your development dependencies (dependencies added with the --save-dev flag) are automatically [pruned](https://docs.npmjs.com/cli/prune) so that they're not shipped with your production code.
 
 If for some reason you need to package your dev dependencies with your production code you can explicity tell speculate not to prune by adding the following to your `package.json`:
