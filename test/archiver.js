@@ -6,7 +6,7 @@ const zlib = require('zlib');
 const stream = require('stream');
 const assert = require('assert');
 const sinon = require('sinon');
-const sandbox = sinon.sandbox.create();
+const sandbox = sinon.createSandbox();
 
 const archiver = require('../lib/archiver');
 

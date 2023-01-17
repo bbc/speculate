@@ -5,7 +5,7 @@ const rimraf = require('rimraf');
 const clean = require('../lib/clean');
 
 const pkg = require('./fixtures/my-cool-api');
-const sandbox = sinon.sandbox.create();
+const sandbox = sinon.createSandbox();
 
 describe('clean', () => {
   beforeEach(() => {

@@ -2,7 +2,7 @@
 
 const pkg = require('./fixtures/my-cool-api');
 const pkgWithWhitelist = require('./fixtures/my-cool-api-with-whitelist');
-const sandbox = require('sinon').sandbox.create();
+const sandbox = require('sinon').createSandbox();
 const fs = require('fs');
 const assert = require('assert');
 const generate = require('../lib/generate');
