@@ -4,7 +4,7 @@
   "description": "Automatically generates an RPM Spec file for your Node.js project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha 'test/**/*.js' --recursive --timeout 60000 --exit",
+    "test": "mocha",
     "lint": "eslint .",
     "posttest": "npm run lint",
     "coverage": "istanbul cover _mocha -- -R dot"
