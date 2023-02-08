@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 %define name my-super-long-long-long-long-cat-api
 %define version 1.0.0
 %define release 1

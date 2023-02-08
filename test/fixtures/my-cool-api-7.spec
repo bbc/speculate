@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 %define name my-cool-api
 %define version 1.1.1
 %define release 7
