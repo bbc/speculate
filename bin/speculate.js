@@ -26,14 +26,16 @@ program
   .option('-n --name <name>', 'Specify custom name for package')
   .parse(process.argv);
 
+const options = program.opts();
+
 // Commander has a magic property called name when not overridden by a parameter
-const name = program.name instanceof Function ? undefined : program.name;
+const name = options.name instanceof Function ? undefined : options.name;
 
 async function runTasks() {
   clean(cwd, projectPkg);
 
   try {
-    const files = await generate(cwd, projectPkg, program.release, name);
+    const files = await generate(cwd, projectPkg, options.release, name);
     files.forEach((file) => {
       // eslint-disable-next-line no-console
       console.log('Created ./%s', file);
