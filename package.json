@@ -42,7 +42,6 @@
     }
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "^0.5.1",
     "eslint": "^8.32.0",
     "eslint-config-iplayer": "^8.0.0",
     "eslint-plugin-mocha": "^10.1.0",
