@@ -103,6 +103,15 @@ describe('generate', () => {
     );
   });
 
+  it('creates the spec file with a custom name if specified with white list', async () => {
+    await generate('/path/to/project', pkgWithWhitelist, 1, 'penguin');
+    sandbox.assert.calledWith(
+      fs.writeFileSync,
+      '/path/to/project/SPECS/penguin.spec',
+      sandbox.match('%define name penguin')
+    );
+  });
+
   it('creates the sources archive with a custom name if specified', async () => {
     await generate('/path/to/project', pkg, null, 'penguin');
     sandbox.assert.calledWith(
@@ -112,7 +121,21 @@ describe('generate', () => {
       {
         files: undefined,
         main: 'index.js',
-        service: 'my-cool-api.service'
+        service: 'penguin.service'
+      }
+    );
+  });
+
+  it('creates the sources archive with a custom name if specified with white list', async () => {
+    await generate('/path/to/project', pkgWithWhitelist, null, 'penguin');
+    sandbox.assert.calledWith(
+      archiver.compress,
+      '/path/to/project',
+      '/path/to/project/SOURCES/penguin.tar.gz',
+      {
+        files: undefined,
+        main: 'index.js',
+        service: 'penguin.service'
       }
     );
   });
@@ -144,8 +167,26 @@ describe('generate', () => {
     );
   });
 
+  it('creates the service file with a custom name if specified with white list', async () => {
+    await generate('/path/to/project', pkgWithWhitelist, 1, 'penguin');
+    sandbox.assert.calledWith(
+      fs.writeFileSync,
+      '/path/to/project/penguin.service',
+      sandbox.match('SyslogIdentifier=penguin')
+    );
+  });
+
   it('creates the sources archive with a custom name if specified', async () => {
     await generate('/path/to/project', pkg, null, 'penguin');
+    sandbox.assert.calledWith(
+      archiver.compress,
+      '/path/to/project',
+      '/path/to/project/SOURCES/penguin.tar.gz'
+    );
+  });
+
+  it('creates the sources archive with a custom name if specified with white list', async () => {
+    await generate('/path/to/project', pkgWithWhitelist, null, 'penguin');
     sandbox.assert.calledWith(
       archiver.compress,
       '/path/to/project',
