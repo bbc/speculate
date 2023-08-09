@@ -133,8 +133,12 @@ describe('generate', () => {
       '/path/to/project',
       '/path/to/project/SOURCES/penguin.tar.gz',
       {
-        files: undefined,
-        main: 'index.js',
+        main: 'server.js',
+        files: [
+          'lib',
+          'routes',
+          'index.js'
+        ],
         service: 'penguin.service'
       }
     );
