@@ -12,6 +12,7 @@ Summary: {{name}}
 Group: Installation Script
 License: {{license}}
 Source: %{name}.tar.gz
+BuildArch: noarch
 BuildRoot: %{buildroot}
 Requires: nodejs{{#if nodeVersion}} {{{nodeVersion}}}{{/if}}
 {{#requires}}

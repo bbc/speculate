@@ -12,6 +12,7 @@ Summary: my-cool-api
 Group: Installation Script
 License: MIT
 Source: %{name}.tar.gz
+BuildArch: noarch
 BuildRoot: %{buildroot}
 Requires: nodejs
 BuildRequires: nodejs
