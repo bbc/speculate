@@ -112,7 +112,7 @@ describe('generate', () => {
       {
         files: undefined,
         main: 'index.js',
-        service: 'my-cool-api.service'
+        service: 'penguin.service'
       }
     );
   });
@@ -131,6 +131,24 @@ describe('generate', () => {
           'index.js'
         ],
         service: 'my-cool-api.service'
+      }
+    );
+  });
+
+  it('creates the service file with a custom name if specified and "files" defined', async () => {
+    await generate('/path/to/project', pkgWithWhitelist, null, 'penguin');
+    sandbox.assert.calledWith(
+      archiver.compress,
+      '/path/to/project',
+      '/path/to/project/SOURCES/penguin.tar.gz',
+      {
+        main: 'server.js',
+        files: [
+          'lib',
+          'routes',
+          'index.js'
+        ],
+        service: 'penguin.service'
       }
     );
   });
