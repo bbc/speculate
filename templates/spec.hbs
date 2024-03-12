@@ -36,6 +36,9 @@ NODE_ENV=production npm prune
 {{#rebuild}}
 npm rebuild
 {{/rebuild}}
+{{#buildSteps}}
+{{{.}}}
+{{/buildSteps}}
 
 %pre
 getent group {{username}} >/dev/null || groupadd -r {{username}}

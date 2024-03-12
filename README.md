@@ -269,6 +269,22 @@ If you need to perform any actions after installing your package (such as moving
 }
 ```
 
+### Build Steps
+
+If you need to perform any actions during the building of your package (such as yarn install or using some other package manager) you can specify these inline using the `buildSteps` property:
+
+```json
+{
+  "spec": {
+    "buildSteps": [
+      "yarn install --production"
+    ]
+  }
+}
+```
+
+If you've specified something here it will disable the prune and rebuild steps.
+
 ### Environment variable
 
 If you need to specify environment variables during startup (NODE_ENV for example) you can specify these inline using the spec.environment property:
@@ -298,6 +314,8 @@ If you need to set specific [systemd service options](https://www.freedesktop.or
   }
 }
 ```
+
+These will overwrite the defaults for ExecStart, Restart, StandardOutput, and StandardError if you set them. Make sure to use complete and correct paths to the executable for your ExecStart overrides.
 
 #### Unit Options
 

@@ -6,10 +6,10 @@ Requires=my-coolest-api.service
 
 [Service]
 ExecStart=/usr/bin/npm start
-WorkingDirectory=/usr/lib/my-cool-api
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
+WorkingDirectory=/usr/lib/my-cool-api
 SyslogIdentifier=my-cool-api
 User=my-cool-api
 Group=my-cool-api
