@@ -8,7 +8,7 @@ After=network.target nss-lookup.target
 {{/unitOptions}}
 
 [Service]
-ExecStart=/usr/bin/npm start
+ExecStart={{execCommand}} start
 WorkingDirectory=/usr/lib/{{name}}
 Restart=always
 StandardOutput=syslog

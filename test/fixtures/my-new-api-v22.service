@@ -1,0 +1,16 @@
+[Unit]
+Description=My New Api v22
+After=network.target nss-lookup.target
+
+[Service]
+ExecStart=/usr/bin/node --run start
+WorkingDirectory=/usr/lib/my-new-api-v22
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=my-new-api-v22
+User=my-new-api-v22
+Group=my-new-api-v22
+
+[Install]
+WantedBy=multi-user.target
