@@ -53,4 +53,12 @@ describe('service', () => {
     assert.equal(service, expected);
   });
 
+  it('uses node in ExecStart when epoch version is declared >=22', () => {
+    const pkg = require('./fixtures/my-new-api-epoch-v22');
+    const expected = loadFixture('my-new-api-epoch-v22.service');
+    const service = createServiceFile(pkg);
+
+    assert.equal(service, expected);
+  });
+
 });

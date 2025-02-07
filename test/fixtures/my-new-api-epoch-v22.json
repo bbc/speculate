@@ -1,0 +1,14 @@
+{
+  "name": "my-new-api-v22",
+  "version": "1.1.1",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "description": "My New Api v22",
+  "main": "index.js",
+  "author": "bob@example.com",
+  "license": "MIT",
+  "spec": {
+    "nodeVersion": ">= 2:22.0.0"
+  }
+}
