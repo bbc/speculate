@@ -15,7 +15,7 @@ npm install --global speculate
 * Generates an RPM Spec file for your project
 * Creates a [systemd](https://www.freedesktop.org/wiki/Software/systemd/) service definition file
 * Supports configuration using your existing `package.json`
-* Currently supports CentOS 7
+* Currently supports CentOS 7, Rocky 8, and Rocky 9
 
 ## Usage
 
@@ -176,9 +176,9 @@ If you have only a `main` directive, speculate will assume you are using it for 
 
 ### Node versions
 
-By default, the spec file that speculate generates _isn't_ tied to a particular Node version. It simply requires the `nodejs` package. It's up to you to make the package available when you install the RPM using `yum`.
+By default, the spec file that speculate generates _isn't_ tied to a particular Node version. It simply requires the `nodejs` package. It's up to you to make the package available when you install the RPM using `yum` or `dnf`.
 
-We **strongly recommend** that you use the [Nodesource binary distributions](https://github.com/nodesource/distributions) to install a modern version of Node.js for both your RPM building environment and your target server. Follow the setup instructions for [Enterprise Linux](https://github.com/nodesource/distributions#rpm) and then run `yum install nodejs`.
+We **strongly recommend** that you use `dnf`'s AppStream repositories if available, otherwise use the [Nodesource binary distributions](https://github.com/nodesource/distributions) to install a modern version of Node.js for both your RPM building environment and your target server. Follow the setup instructions for [Enterprise Linux](https://github.com/nodesource/distributions#rpm) and then run `yum install nodejs`.
 
 If you're using multiple node repositories or a repository with multiple versions of node, you can specify an RPM version requirement with the `nodeVersion` property in your `package.json` file:
 
@@ -199,6 +199,12 @@ nodejs.x86_64                             6.2.2-1nodesource.el7.centos          
 nodejs.x86_64                             1:6.3.0-1nodesource.el7.centos        nodesource
 nodejs.x86_64                             2:6.11.0-1nodesource.el7.centos       nodesource # <- Latest but epoch of '2'
 ```
+
+#### Node 22+
+
+For more recent node versions, `node` and `npm` have split into multiple packages. If there is a requirement to support both older and newer versions of node, please add `npm` to the list of [dependencies](#dependencies).
+
+If `nodeVersion` is declared to have a minimum semantic version of 22+, then the systemd service will use Node's [run](https://nodejs.org/en/learn/command-line/run-nodejs-scripts-from-the-command-line#using-the---run-flag) flag to run the start script instead of `npm`.
 
 ### Directory Structure
 
