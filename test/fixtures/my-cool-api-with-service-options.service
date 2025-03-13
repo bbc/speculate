@@ -3,7 +3,6 @@ Description=My Cool API
 After=network.target nss-lookup.target
 
 [Service]
-ExecStart=/usr/bin/npm start
 WorkingDirectory=/usr/lib/my-cool-api
 Restart=always
 StandardOutput=syslog
@@ -11,6 +10,7 @@ StandardError=syslog
 SyslogIdentifier=my-cool-api
 User=my-cool-api
 Group=my-cool-api
+ExecStart=/usr/bin/some-custom-binary
 CPUSchedulingPriority=50
 LimitNOFILE=10000
 

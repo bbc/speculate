@@ -15,7 +15,8 @@ npm install --global speculate
 * Generates an RPM Spec file for your project
 * Creates a [systemd](https://www.freedesktop.org/wiki/Software/systemd/) service definition file
 * Supports configuration using your existing `package.json`
-* Currently supports CentOS 7
+* Currently supports EL7+
+* Natively supports Node 22's `node --run start` for scripts, but can be [overridden with `serviceOptions`](#service-options).
 
 ## Usage
 
@@ -133,9 +134,9 @@ If for some reason you need to package your dev dependencies with your productio
 }
 ```
 
-### `npm start` script
+### `node --run start` script
 
-The systemd service file that Speculate generates uses the `npm start` script to start your application. Make sure that you've defined this script in your `package.json` file.
+The systemd service file that Speculate generates uses the `node --run start` script to start your application. Make sure that you've defined this script in your `package.json` file.
 
 ```json
 {
@@ -178,14 +179,14 @@ If you have only a `main` directive, speculate will assume you are using it for 
 
 By default, the spec file that speculate generates _isn't_ tied to a particular Node version. It simply requires the `nodejs` package. It's up to you to make the package available when you install the RPM using `yum`.
 
-We **strongly recommend** that you use the [Nodesource binary distributions](https://github.com/nodesource/distributions) to install a modern version of Node.js for both your RPM building environment and your target server. Follow the setup instructions for [Enterprise Linux](https://github.com/nodesource/distributions#rpm) and then run `yum install nodejs`.
+We **strongly recommend** that you use [RPM Modules](https://docs.fedoraproject.org/en-US/modularity/using-modules/) to install a modern version of Node.js for both your RPM building environment and your target server.
 
 If you're using multiple node repositories or a repository with multiple versions of node, you can specify an RPM version requirement with the `nodeVersion` property in your `package.json` file:
 
 ```json
 {
   "spec": {
-    "nodeVersion": "< 5.0.0"
+    "nodeVersion": "< 23.0.0"
   }
 }
 ```
