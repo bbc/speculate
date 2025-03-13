@@ -10,6 +10,7 @@
   "license": "MIT",
   "spec": {
     "serviceOptions": {
+      "ExecStart": "/usr/bin/some-custom-binary",
       "CPUSchedulingPriority": 50,
       "LimitNOFILE": 10000
     }
