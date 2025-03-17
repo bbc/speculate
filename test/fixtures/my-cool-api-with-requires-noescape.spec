@@ -17,6 +17,7 @@ Requires: nodejs
 Requires: python >= 2.7.14
 BuildRequires: nodejs
 BuildRequires: python >= 2.7.14
+BuildRequires: npm
 AutoReqProv: no
 
 %description

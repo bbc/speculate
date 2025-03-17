@@ -9,9 +9,7 @@
   "author": "bob@example.com",
   "license": "MIT",
   "spec": {
-    "buildRequires": [
-      "npm",
-      "python"
-    ]
+    "prune": false,
+    "rebuild": false
   }
 }
