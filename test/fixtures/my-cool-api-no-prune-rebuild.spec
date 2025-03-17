@@ -15,7 +15,6 @@ Source: %{name}.tar.gz
 BuildRoot: %{buildroot}
 Requires: nodejs
 BuildRequires: nodejs
-BuildRequires: npm
 AutoReqProv: no
 
 %description
@@ -25,8 +24,6 @@ My Cool API
 %setup -q -c -n %{name}
 
 %build
-NODE_ENV=production npm prune
-npm rebuild
 
 %pre
 getent group my-cool-api >/dev/null || groupadd -r my-cool-api
@@ -39,8 +36,6 @@ mkdir -p %{buildroot}/var/log/my-cool-api
 
 %post
 systemctl enable /usr/lib/my-cool-api/my-cool-api.service
-mv /usr/lib/my-cool-api/rc.local /etc/rc.local
-find /etc/bake-scripts/application -maxdepth 1 -type f ! \( -name "*.pyc" -or -name '*.pyo' \) -exec chmod +x {} +
 
 %clean
 rm -rf %{buildroot}
