@@ -29,10 +29,10 @@
     "speculate": "./bin/speculate.js"
   },
   "dependencies": {
-    "commander": "^10.0.0",
+    "commander": "^14.0.1",
     "handlebars": "^4.7.7",
-    "rimraf": "^4.1.0",
-    "tar-fs": "^2.1.1"
+    "rimraf": "^6.0.1",
+    "tar-fs": "^3.1.1"
   },
   "eslintConfig": {
     "extends": "iplayer",
@@ -45,8 +45,8 @@
   },
   "devDependencies": {
     "codeclimate-test-reporter": "^0.5.1",
-    "eslint": "^8.57.1",
-    "eslint-config-iplayer": "^9.4.6",
+    "eslint": "^9.36.0",
+    "eslint-config-iplayer": "^10.0.1",
     "mocha": "^11.7.2",
     "nyc": "^17.1.0",
     "sinon": "^21.0.0"
