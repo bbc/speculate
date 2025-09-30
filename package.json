@@ -4,10 +4,9 @@
   "description": "Automatically generates an RPM Spec file for your Node.js project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha && npm run lint",
     "lint": "eslint .",
-    "posttest": "npm run lint",
-    "coverage": "istanbul cover _mocha -- -R dot"
+    "coverage": "nyc mocha && nyc report --reporter=html && nyc report --reporter=json-summary"
   },
   "repository": {
     "type": "git",
@@ -39,16 +38,18 @@
     "extends": "iplayer",
     "parserOptions": {
       "ecmaVersion": 8
+    },
+    "rules": {
+      "listeners/no-missing-remove-event-listener": 0
     }
   },
   "devDependencies": {
     "codeclimate-test-reporter": "^0.5.1",
-    "eslint": "^8.32.0",
-    "eslint-config-iplayer": "^8.0.0",
-    "eslint-plugin-mocha": "^10.1.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^10.2.0",
-    "sinon": "^15.0.1"
+    "eslint": "^8.57.1",
+    "eslint-config-iplayer": "^9.4.6",
+    "mocha": "^11.7.2",
+    "nyc": "^17.1.0",
+    "sinon": "^21.0.0"
   },
   "engines": {
     "node": ">=12.22.0"
