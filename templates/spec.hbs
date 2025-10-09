@@ -3,6 +3,7 @@
 %define version {{version}}
 %define release {{release}}
 %define buildroot %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+%undefine __brp_mangle_shebangs
 
 Name: %{name}
 Version: %{version}
