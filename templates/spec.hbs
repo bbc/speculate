@@ -18,6 +18,7 @@ Requires: nodejs{{#if nodeVersion}} {{{nodeVersion}}}{{/if}}
 Requires: {{{.}}}
 {{/requires}}
 BuildRequires: nodejs{{#if nodeVersion}} {{{nodeVersion}}}{{/if}}
+BuildRequires: npm
 {{#buildRequires}}
 BuildRequires: {{{.}}}
 {{/buildRequires}}
