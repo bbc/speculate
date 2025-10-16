@@ -31,10 +31,10 @@ AutoReqProv: no
 
 %build
 {{#prune}}
-NODE_ENV=production npm prune
+NODE_ENV=production pnpm prune
 {{/prune}}
 {{#rebuild}}
-npm rebuild
+pnpm rebuild
 {{/rebuild}}
 
 %pre
