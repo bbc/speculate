@@ -1,25 +1,14 @@
-# This config was generated using ibl-scripts
-
 version: 2
 updates:
-  - package-ecosystem: npm
-    directory: /
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "monday"
-      timezone: "Europe/London"
-      time: "09:00"
-    labels:
-      - "dependencies"
-    commit-message:
-      prefix: "chore"
-      include: "scope"
+      interval: 'weekly'
     cooldown:
-      # https://confluence.dev.bbc.co.uk/spaces/SECARC/pages/480985004/Guidance+for+use+of+language+package+managers
       default-days: 7
-      include: 
-          - "*"
-    groups:
-      all:
-        patterns:
-          - "*"
+      semver-major-days: 14
+      semver-minor-days: 7
+      semver-patch-days: 7
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
