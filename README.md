@@ -7,7 +7,7 @@
 ## Installation
 
 ```
-npm install --global speculate
+pnpm install --global speculate
 ```
 
 ## Features
@@ -30,10 +30,10 @@ my-cool-api
 0 directories, 2 files
 ```
 
-First run npm install to install your dependencies:
+First run pnpm install to install your dependencies:
 
 ```
-npm install
+pnpm install
 ```
 
 This creates the `node_modules` directory:
@@ -79,11 +79,11 @@ SPECS
 
 ### Install your dependencies _first_
 
-Speculate assumes that you've _already installed your npm dependencies_ when it is run. This means that you don't need to worry about running `npm install` inside a clean RPM-building environment like _mock_.
+Speculate assumes that you've _already installed your pnpm dependencies_ when it is run. This means that you don't need to worry about running `pnpm install` inside a clean RPM-building environment like _mock_.
 
-The generated spec file instructs your RPM building tool to run [`npm rebuild`](https://docs.npmjs.com/cli/rebuild) as part of the build process. This ensures that any native modules are rebuilt for your target environment, even if they were originally installed on a different platform.
+The generated spec file instructs your RPM building tool to run [`pnpm rebuild`](https://docs.npmjs.com/cli/rebuild) as part of the build process. This ensures that any native modules are rebuilt for your target environment, even if they were originally installed on a different platform.
 
-This will add `npm` as a build requirement if not already specified.
+This will add `pnpm` as a build requirement if not already specified.
 
 If for some reason you do not want to rebuild your native modules, you can explicity tell speculate not to rebuild by adding the following to your `package.json`:
 
@@ -98,18 +98,18 @@ If for some reason you do not want to rebuild your native modules, you can expli
 A typical speculate build looks like this:
 
 ```bash
-npm install
-npm test
+pnpm install
+pnpm test
 speculate
 # build the RPM (using rpmbuild, mock etc.)
 ```
 
 ### Local installation
 
-To avoid the need to install speculate globally, we recommend installing it _locally_ and creating an [npm script](https://docs.npmjs.com/misc/scripts) in your `package.json` file:
+To avoid the need to install speculate globally, we recommend installing it _locally_ and creating an [pnpm script](https://docs.npmjs.com/misc/scripts) in your `package.json` file:
 
 ```
-npm install --save-dev speculate
+pnpm install --save-dev speculate
 ```
 
 ```json
@@ -120,13 +120,13 @@ npm install --save-dev speculate
 }
 ```
 
-You can then run `npm run spec` to generate your spec file in an environment where speculate isn't installed globally (like your CI server.)
+You can then run `pnpm run spec` to generate your spec file in an environment where speculate isn't installed globally (like your CI server.)
 
 ### Pruning dependencies
 
 To minimise the final RPM size, your development dependencies (dependencies added with the --save-dev flag) are automatically [pruned](https://docs.npmjs.com/cli/prune) so that they're not shipped with your production code.
 
-This will add `npm` as a build requirement if not already specified.
+This will add `pnpm` as a build requirement if not already specified.
 
 If for some reason you need to package your dev dependencies with your production code you can explicity tell speculate not to prune by adding the following to your `package.json`:
 
@@ -152,7 +152,7 @@ The systemd service file that Speculate generates uses the `node --run start` sc
 
 ### Including only certain files
 
-Similar to `npm`, if you specify a `files` directive in your `package.json` then `speculate` will only include those files or directories plus `package.json` and `node_modules` in the source tarball:
+Similar to `pnpm`, if you specify a `files` directive in your `package.json` then `speculate` will only include those files or directories plus `package.json` and `node_modules` in the source tarball:
 
 ```json
 {
@@ -164,7 +164,7 @@ Similar to `npm`, if you specify a `files` directive in your `package.json` then
 }
 ```
 
-Alongside this, the `main` attribute is also included in the `files` listing, although the service is still started using `npm start`:
+Alongside this, the `main` attribute is also included in the `files` listing, although the service is still started using `pnpm start`:
 
 ```json
 {
@@ -345,9 +345,9 @@ speculate --name=my-cool-api
 
 This is useful if you are using private NPM packages which start with an `@`.
 
-### Replace hyphens in npm version number
+### Replace hyphens in pnpm version number
 
-Running rpmbuild on an npm package with a hyphen in its version number throws an error. If your package's version number contains hyphens (e.g. it is a prerelease), you may wish to replace them so that the rpm can be built. You can tell speculate to replace these with tildes by adding the `replaceHyphens` property to your package's spec block:
+Running rpmbuild on an pnpm package with a hyphen in its version number throws an error. If your package's version number contains hyphens (e.g. it is a prerelease), you may wish to replace them so that the rpm can be built. You can tell speculate to replace these with tildes by adding the `replaceHyphens` property to your package's spec block:
 
 ```json
 {
