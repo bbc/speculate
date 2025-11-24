@@ -1,12 +1,14 @@
 {
   "name": "speculate",
+  "private": true,
   "version": "6.0.1",
   "description": "Automatically generates an RPM Spec file for your Node.js project",
   "main": "index.js",
   "scripts": {
     "test": "mocha && npm run lint",
     "lint": "eslint .",
-    "coverage": "nyc mocha && nyc report --reporter=html && nyc report --reporter=json-summary"
+    "coverage": "nyc mocha && nyc report --reporter=html && nyc report --reporter=json-summary",
+    "publish:safe": "npx @bbc/iplayer-web-safe-publish"
   },
   "repository": {
     "type": "git",
@@ -52,6 +54,6 @@
     "sinon": "^21.0.0"
   },
   "engines": {
-    "node": ">=12.22.0"
+    "node": ">=22.18.0"
   }
 }
