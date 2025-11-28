@@ -8,7 +8,8 @@
     "test": "mocha && npm run lint",
     "lint": "eslint .",
     "coverage": "nyc mocha && nyc report --reporter=html && nyc report --reporter=json-summary",
-    "publish:safe": "npx @bbc/iplayer-web-safe-publish"
+    "publish:safe": "npx @bbc/iplayer-web-safe-publish",
+    "verify:release": "npm run test && npm run build"
   },
   "repository": {
     "type": "git",
