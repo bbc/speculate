@@ -4,10 +4,22 @@
 
 > Automatically generates an RPM Spec file for your Node.js project
 
+## Local Development
+
+You have to have [pnpm](https://pnpm.io/) installed to use this repository. Follow the [official instructions](https://pnpm.io/installation), or simply run (this is the only time you will use `npm`):
+
+```sh
+npm install -g pnpm@latest-10
+```
+
+```sh
+pnpm install --frozen-lockfile
+```
+
 ## Installation
 
 ```
-npm install --global speculate
+pnpm install --global speculate
 ```
 
 ## Features
@@ -30,10 +42,10 @@ my-cool-api
 0 directories, 2 files
 ```
 
-First run npm install to install your dependencies:
+First run pnpm install to install your dependencies:
 
 ```
-npm install
+pnpm install
 ```
 
 This creates the `node_modules` directory:
@@ -79,7 +91,7 @@ SPECS
 
 ### Install your dependencies _first_
 
-Speculate assumes that you've _already installed your npm dependencies_ when it is run. This means that you don't need to worry about running `npm install` inside a clean RPM-building environment like _mock_.
+Speculate assumes that you've _already installed your npm dependencies_ when it is run. This means that you don't need to worry about running `pnpm install` inside a clean RPM-building environment like _mock_.
 
 The generated spec file instructs your RPM building tool to run [`npm rebuild`](https://docs.npmjs.com/cli/rebuild) as part of the build process. This ensures that any native modules are rebuilt for your target environment, even if they were originally installed on a different platform.
 
@@ -98,18 +110,18 @@ If for some reason you do not want to rebuild your native modules, you can expli
 A typical speculate build looks like this:
 
 ```bash
-npm install
-npm test
+pnpm install
+pnpm test
 speculate
 # build the RPM (using rpmbuild, mock etc.)
 ```
 
 ### Local installation
 
-To avoid the need to install speculate globally, we recommend installing it _locally_ and creating an [npm script](https://docs.npmjs.com/misc/scripts) in your `package.json` file:
+To avoid the need to install speculate globally, we recommend installing it _locally_ and creating an [pnpm script](https://docs.npmjs.com/misc/scripts) in your `package.json` file:
 
 ```
-npm install --save-dev speculate
+pnpm install --save-dev speculate
 ```
 
 ```json
@@ -120,7 +132,7 @@ npm install --save-dev speculate
 }
 ```
 
-You can then run `npm run spec` to generate your spec file in an environment where speculate isn't installed globally (like your CI server.)
+You can then run `pnpm run spec` to generate your spec file in an environment where speculate isn't installed globally (like your CI server.)
 
 ### Pruning dependencies
 
@@ -345,9 +357,9 @@ speculate --name=my-cool-api
 
 This is useful if you are using private NPM packages which start with an `@`.
 
-### Replace hyphens in npm version number
+### Replace hyphens in pnpm version number
 
-Running rpmbuild on an npm package with a hyphen in its version number throws an error. If your package's version number contains hyphens (e.g. it is a prerelease), you may wish to replace them so that the rpm can be built. You can tell speculate to replace these with tildes by adding the `replaceHyphens` property to your package's spec block:
+Running rpmbuild on an pnpm package with a hyphen in its version number throws an error. If your package's version number contains hyphens (e.g. it is a prerelease), you may wish to replace them so that the rpm can be built. You can tell speculate to replace these with tildes by adding the `replaceHyphens` property to your package's spec block:
 
 ```json
 {

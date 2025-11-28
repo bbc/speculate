@@ -5,7 +5,7 @@
   "description": "Automatically generates an RPM Spec file for your Node.js project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha && npm run lint",
+    "test": "mocha && pnpm run lint",
     "lint": "eslint .",
     "coverage": "nyc mocha && nyc report --reporter=html && nyc report --reporter=json-summary",
     "publish:safe": "npx @bbc/iplayer-web-safe-publish"
@@ -54,6 +54,7 @@
     "sinon": "^21.0.0"
   },
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=22.18.0",
+    "pnpm": ">=10"
   }
 }
