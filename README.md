@@ -13,7 +13,7 @@ npm install -g pnpm@latest-10
 ```
 
 ```sh
-pnpm i --frozen-lockfile
+pnpm install --frozen-lockfile
 ```
 
 ## Installation
