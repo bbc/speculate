@@ -33,7 +33,7 @@
   "dependencies": {
     "commander": "^10.0.0",
     "handlebars": "^4.7.7",
-    "rimraf": "^4.1.0",
+    "rimraf": "^4.4.1",
     "tar-fs": "^2.1.1"
   },
   "eslintConfig": {
