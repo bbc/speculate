@@ -245,6 +245,8 @@ If you have any build dependencies (such as `python` for `node-gyp`), instead of
 }
 ```
 
+> NOTE: given that `speculate` generates RPM spec files for Node.js projects in particular, the `nodejs` RPM dependency is already declared by default in the "spec" template. As such, you don't need to specify `nodejs` as a dependency in neither "requires" nor "buildRequires" sections, as it will result as a duplicate.
+
 ### Executables
 
 If you have scripts that need to be executable when they're installed on your target server, add them to the `executable` array. You can list both files and entire directories:
