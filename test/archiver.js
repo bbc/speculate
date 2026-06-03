@@ -77,7 +77,7 @@ describe('archiver', () => {
     assert.equal(ignore('/tmp/SOURCES/cake/real_file_here'), false);
   });
 
-  it('archives files on a whitelist if specified alongside required files', async () => {
+  it('archives files on a allowlist if specified alongside required files', async () => {
     const service = 'my-cool-api.service';
     const files = [
       'lib',
@@ -101,7 +101,7 @@ describe('archiver', () => {
     }));
   });
 
-  it('does not include whitelist if none specified', async () => {
+  it('does not include allowlist if none specified', async () => {
     const service = 'my-cool-api.service';
     const result = archiver.compress('/tmp/SOURCES', 'tmp.tar.gz', { service });
     writeStream.emit('close');
