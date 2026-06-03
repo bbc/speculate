@@ -1,7 +1,7 @@
 'use strict';
 
 const pkg = require('./fixtures/my-cool-api');
-const pkgWithWhitelist = require('./fixtures/my-cool-api-with-whitelist');
+const pkgWithAllowlist = require('./fixtures/my-cool-api-with-allowlist');
 const sandbox = require('sinon').createSandbox();
 const fs = require('fs');
 const assert = require('assert');
@@ -118,7 +118,7 @@ describe('generate', () => {
   });
 
   it('passes files and main values from the package.json to archiver', async () => {
-    await generate('/path/to/project', pkgWithWhitelist, null, null);
+    await generate('/path/to/project', pkgWithAllowlist, null, null);
     sandbox.assert.calledWith(
       archiver.compress,
       '/path/to/project',
@@ -136,7 +136,7 @@ describe('generate', () => {
   });
 
   it('creates the service file with a custom name if specified and "files" defined', async () => {
-    await generate('/path/to/project', pkgWithWhitelist, null, 'penguin');
+    await generate('/path/to/project', pkgWithAllowlist, null, 'penguin');
     sandbox.assert.calledWith(
       archiver.compress,
       '/path/to/project',
